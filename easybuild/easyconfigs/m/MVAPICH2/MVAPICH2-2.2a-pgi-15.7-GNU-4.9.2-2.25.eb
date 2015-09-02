@@ -1,0 +1,21 @@
+name = 'MVAPICH2'
+version = '2.2a'
+
+homepage = 'http://mvapich.cse.ohio-state.edu/overview/mvapich2/'
+description = "This is an MPI 3.0 implementation.  It is based on MPICH2 and MVICH."
+
+toolchain = {'name': 'pgi', 'version': '15.7-GNU-4.9.2-2.25'}
+
+gcc_comp = 'GNU'
+gcc_ver  = '4.9.2-2.25'
+gcc      = (gcc_comp, gcc_ver)
+
+source_urls = ['http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/']
+sources = [SOURCELOWER_TAR_GZ]
+
+# Let's store the checksum in order to be sure it doesn't suddenly change
+#checksums = ['77bba29442f81e196155e87869cdceda']
+
+builddependencies = [('Bison', '2.7', '', gcc)]
+
+moduleclass = 'mpi'

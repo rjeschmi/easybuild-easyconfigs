@@ -1,0 +1,18 @@
+easyblock = "Toolchain"
+
+name = "pgimvapich2"
+version = "2015b"
+
+homepage = "(none)"
+description = """PGI Compiler and MVAPICH2"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+comp_name = 'pgi'
+comp_version = '15.7-GNU-4.9.2-2.25'
+comp = (comp_name, comp_version)
+
+dependencies = [
+	comp,
+	('MVAPICH2', '2.2a', '', comp),
+]
