@@ -1,0 +1,44 @@
+easyblock = 'EB_Python'
+name = 'PythonCore'
+version = '2.7.11'
+
+homepage = 'http://python.org/'
+description = """Python is a programming language that lets you work more quickly and integrate your systems
+ more effectively."""
+
+toolchain = {'name': 'foss', 'version': '2015b'}
+toolchainopts = {'pic': True, 'opt': True, 'optarch': True}
+
+python_name = 'Python'
+
+source_urls = [
+    'http://www.python.org/ftp/%(pythonnamelower)s/%(version)s/' % 
+        { 'pythonnamelower': python_name.lower(),
+          'version': version }
+]
+sources = [ '%(pythonname)s-%(version)s.tgz' % {
+    'pythonname': python_name,
+    'version': version }]
+
+# python needs bzip2 to build the bz2 package
+dependencies = [
+    ('bzip2', '1.0.6'),
+    ('zlib', '1.2.8'),
+    ('libreadline', '6.3'),
+    ('SQLite', '3.10.0'),
+]
+
+osdependencies = [('openssl-devel', 'libssl-dev', 'libopenssl-devel')]
+
+# order is important!
+# package versions updated May 28th 2015
+exts_list = [
+    ('setuptools', '18.7.1', {
+        'source_urls': ['https://pypi.python.org/packages/source/s/setuptools/'],
+    }),
+    ('pip', '7.1.2', {
+        'source_urls': ['https://pypi.python.org/packages/source/p/pip/'],
+    }),
+]
+
+moduleclass = 'lang'
